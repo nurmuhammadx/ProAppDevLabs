@@ -67,8 +67,9 @@ def write_dict_to_csv(mdict):
             next_step = call_info['next_step']
 
             file_writer.writerow([call_id, phone, picked_up, fio, next_call_date, next_step])
-
-    print('\nSaving data to a file: new_data.csv')
+    print('\n========================************************=============================\n'
+          'Saving data to a file: data.csv'
+          '\n========================************************=============================')
 
 
 # Добавление новых данных в файл
@@ -103,7 +104,7 @@ def sort_by_string_field(mdict, field):
     for key in sorted_keys:
         sorted_dict[key] = mdict[key]
 
-    print("\nSorting by the client's full name field (string)")
+    print("\nSorting by the client's full name field (string):")
     for key, value in sorted_dict.items():
         print(key, '=>', value)
 
@@ -139,9 +140,11 @@ def check_n():  # метод для обрабоки ввода
     i = 0
     while i < 1:
         try:
-            print("\nEnter from 0 to 5 to select an option:\n1) Sorting by the client's full name field (string)\n"
+            print("\n========================************************=============================\n"
+                  "Enter from 0 to 5 to select an option:\n1) Sorting by the client's full name field (string)\n"
                   "2) Sorting by phone number\n3) Filtering by the field 'picked up the phone or not'\n"
-                  "4) Add a new user\n5) Save to a new .csv file\n0) Exit\n")
+                  "4) Add a new user\n5) Save to a new .csv file\n0) Exit\n"
+                  "========================************************=============================\n")
             n: int = int(
                 input('Enter: '))
             i = 1
@@ -165,6 +168,7 @@ def choose_mode_filter():
         elif num_x == 5:
             write_dict_to_csv(mydict)
         elif num_x == 0:
+            print("\n  //////////\n // Bye! //\n//////////")
             break
         else:
             print("Enter only '0' to '5'!")
